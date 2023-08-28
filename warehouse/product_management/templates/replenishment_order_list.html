@@ -1,0 +1,18 @@
+<h1>Replenishment Orders</h1>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Order Date</th>
+    <th>Supplier</th>
+    <th>Status</th>
+  </tr>
+  {% for order in orders %}
+  <tr>
+    <td>{{ order.product.name }}</td>
+    <td>{{ order.order_date }}</td>
+    <td>{{ order.supplier }}</td>
+    <td>{{ order.status }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<a href="{% url 'logout' %}"><button>logout</button></a><br>

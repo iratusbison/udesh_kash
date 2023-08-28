@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Accounts</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #ff6600;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .account-holder {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .account-number {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 5px;
+        }
+
+        .principal-amount {
+            font-size: 20px;
+            color: #ff9933;
+            margin-bottom: 10px;
+        }
+
+        .interest-rate {
+            font-size: 16px;
+            color: #33cc33;
+            margin-bottom: 5px;
+        }
+
+        .maturity-date {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 5px;
+        }
+
+        .date-of-opening {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 5px;
+        }
+
+        .maturity_amount {
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .decorative-element {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+           
+        </div>
+
+        <h1>Financial Accounts</h1>
+
+        <!-- Fixed Deposit Accounts Section -->
+        <h2>Fixed Deposit Accounts</h2>
+        <ul>
+            {% for account in accounts %}
+                <li>
+                    <h3 class="account-holder">{{ account.account_holder }}</h3>
+                    <p class="account-number">Account Number: {{ account.account_number }}</p>
+                    <p class="principal-amount">Principal Amount: ₹{{ account.principal_amount }}</p>
+                    <p class="interest-rate">Interest Rate: {{ account.interest_rate }}%</p>
+                    <p class="maturity-date">Maturity Date: {{ account.maturity_date }}</p>
+                    <p class="date-of-opening">Date of Opening: {{ account.date_of_opening }}</p>
+                    <p class="maturity_amount">Maturity Amount: {{ account.maturity_amount }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if user.is_authenticated %}
+            <a class="logout-link" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a class="logout-link" href="{% url 'login' %}">Login</a>
+        {% endif %}
+
+        <div class="decorative-element">
+           
+        </div>
+    </div>
+</body>
+</html>

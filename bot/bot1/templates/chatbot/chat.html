@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Rowdybot</title>
+</head>
+<body>
+    <center><h2>Welcome to the Chatbot</h2>
+    <div id="chat-container">
+        <!-- Display user messages and bot responses here -->
+        {% for message in messages %}
+            <p>{{ message.user.name }}: {{ message.content }}</p>
+        {% endfor %}
+        {% if bot_response %}
+           <h1> <p>Bot: {{ bot_response }}</p></h1>
+        {% endif %}
+    </div>
+    <form method="post" action="{% url 'chat_view' %}">
+        {% csrf_token %}
+       <h1> <input type="text" name="message" placeholder="Enter your message"></h1>
+        <input type="submit" value="Send">
+    </form></center>
+</body>
+</html>

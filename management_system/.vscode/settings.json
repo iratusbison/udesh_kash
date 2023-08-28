@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./resource/models",
+        "./resource/inventory"
+    ]
+}

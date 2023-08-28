@@ -1,0 +1,9 @@
+<!-- supply/templates/supply/supply_list.html -->
+<h1>Supplied Restocks</h1>
+<ul>
+  {% for supply in supplies %}
+    <li>{{ supply.quantity_refilled }} {{ supply.resource.name }}  supplied on {{ supply.date_supplied }}</li>
+  {% empty %}
+    <li>No supplies yet.</li>
+  {% endfor %}
+</ul>

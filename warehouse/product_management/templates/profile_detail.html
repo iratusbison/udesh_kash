@@ -1,0 +1,9 @@
+<h1>Profile Details</h1>
+<p>Username: {{ profile.user.username }}</p>
+<p>Email: {{ profile.user.email }}</p>
+<p>Role: {{ profile.role }}</p>
+
+<a href="{% url 'product_list' %}"><button>Go to Product List</button></a><br>
+<a href="{% url 'replenishment_order_list' %}"><button>replenishment order list</button></a><br>
+<a href="{% url 'create_replenishment_order' %}"><button>create replenishment order</button></a><br>
+<a href="{% url 'logout' %}">Logout</a>

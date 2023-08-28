@@ -1,0 +1,19 @@
+<h1>Product List</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>SKU</th>
+    <th>Description</th>
+    <th>Stock Level</th>
+  </tr>
+  {% for product in products %}
+  <tr>
+    <td>{{ product.name }}</td>
+    <td>{{ product.sku }}</td>
+    <td>{{ product.description }}</td>
+    <td>{{ product.stock_level }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<a href="{% url 'replenishment_order_list' %}"><button>replenishment order list</button></a><br>
